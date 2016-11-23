@@ -1,0 +1,9 @@
+CREATE TABLE nr_groups (
+  id int(2) unsigned NOT NULL auto_increment,
+  grp_name varchar(10) NOT NULL default '',
+  grp_desc varchar(50) NOT NULL default '',
+  nocid int(2) unsigned NOT NULL,
+  PRIMARY KEY  (id),
+  UNIQUE KEY grp_name (grp_name),
+  UNIQUE KEY grp_name_2 (grp_name)
+); 
