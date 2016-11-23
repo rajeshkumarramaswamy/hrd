@@ -1,0 +1,7 @@
+{% extends 'employee_form.html' %}
+{% load render_table from django_tables2 %}
+{% load static %}
+
+{% block content %}
+    {% render_table emp %}
+{% endblock %}

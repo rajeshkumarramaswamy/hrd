@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+    <form method="get" action="">
+        <label> Search for Staff name: </label>
+        <input type="text" placeholder="Search.." id="mysearch">
+        <input type="submit" />
+    </form>
+    <script>
+        $(function(){
+            var employees = {{ emp_list | safe }};
+            // setup autocomplete function pulling from currencies[] array
+            $('#mysearch').autocomplete({
+                source: employees,
+                onSelect: function (suggestion) {
+                    suggestion = ('#mysearch').val();
+                    $.get('/employee_list/', {
+                                    'suggestion': JSON.stringify(suggestion)
+                                    }, function(res) {
+                            $('.loading').addClass('hide');
+                            console.log(res);
+                            $("#re").html(x({'res' : res}));
+                            $("#details").dataTable();
+                        }); //Data Table end
+                } //autocomplete-end
+            });
+         }); //search bar function end
+
+
+    </script>
+{% endblock %}

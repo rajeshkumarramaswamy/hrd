@@ -1,0 +1,26 @@
+<table class="table table-bordered table-hover" id="details">
+        <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>Employee Number</th>
+                  <th>Employee ID</th>
+                  <th>Employee Name</th>
+                  <th>Date Of Join</th>
+                  <th>Total Experience</th>
+                  <th>Phone Number</th>
+                  <th>Skype ID</th>
+              </tr>
+          </thead>
+          <tbody>
+           <% $.each(res.dtable, function (key, values) { %>
+                  <td><%= key+1 %></td>
+                  <td><%= values.id %></td>
+                  <td><%= values.employee_number %></td>
+                  <td><%= values.employee_id %></td>
+                  <td><%= values.user_name %></td>
+                  <td><%= values.date_of_join %></td>
+                  <td><%= values.skype_id %></td>
+              </tr>
+          <% }) %>
+          </tbody>
+
